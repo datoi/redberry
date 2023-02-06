@@ -1,0 +1,43 @@
+/*@font-face {*/
+/*    font-family: "HelveticaNeue";*/
+/*    src: url("./assets/HelveticaNeue.ttc");*/
+/*}*/
+.home-bg {
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    max-height: 1080px;
+    width: 100%;
+    max-width: 1920px;
+}
+.logo{
+    width: 180px;
+}
+hr{
+    border: 1px solid #1A1A1A;
+
+}
+.button-container{
+    height: 80vh;
+}
+.resume-button{
+    margin: auto;
+    padding: 8px 80px;
+    background: #1A1A1A;
+    border-radius: 8px;
+}
+
+.button-note{
+    font-family: 'Helvetica Neue';
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+
+
+.stamp{
+    z-index: -1;
+    width: 200px;
+    margin: 230px 0 0 350px;
+}

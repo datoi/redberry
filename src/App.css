@@ -1,38 +1,263 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: HelveticaNeue;
+    font-weight: bold;
+    src: url("assets/HelveticaNeue.ttc") format("TTC");
+}
+.cont{
+    background: #f8f8f8;
+}
+.inner-cont{
+    width: 770px;
+}
+.row{
+    --bs-gutter-x: 0!important;
+
+}
+input{
+    display: block;
+    height: 35px;
+    font-style: normal;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    background: #FFFFFF;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}
+input[type="text"]
+{
+    font-size:14px;
+}
+label{
+    margin: 3px 0  ;
+    font-family: 'Helvetica Neue';
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+}
+p{
+    font-family: 'Helvetica Neue';
+    font-weight: 300;
+    font-size: 14px;
+    color: #2E2E2E;
+}
+.personal-info-hr{
+    margin: 0 !important;
+    position: absolute;
+    width: 607px;
+    left: 162px;
+    border: 1px solid #1A1A1A;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.page-number{
+    width: 29px;
+    height: 20px;
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    font-size: 20px;
+    text-align: right;
+    color: #1A1A1A;
+}
+.page-titles{
+    margin-left: 160px;
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #1A1A1A;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sec-body{
+    margin: 30px 0 0 162px;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.upload-button{
+    color: #FFFFFF;
+    background: #0E80BF;
+    border-radius: 4px;
+    width: 107px;
+    height: 29px;
+    padding: 0px 10px 12px;
+    gap: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.upload-button-note{
+    font-family: 'Helvetica Neue';
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about-me-input{
+    height: 90px;
+
+    background: #FFFFFF;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}
+.button-page-change-container{
+    height: 100px;
+}
+.button-page-change{
+    padding: 10px 30px;
+
+    background: #6B40E3;
+    border-radius: 4px;
+}
+.button-page-change-note{
+    width: 81px;
+    height: 20px;
+    font-family: 'Helvetica Neue';
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+}
+.add-more-experience{
+    padding: 0px 10px;
+    width: 240px;
+    height: 40px;
+    background: #62A1EB;
+    border-radius: 4px;
+}
+.add-more-experience-note{
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+}
+#select-degree{
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+    height: 35px;
+}
+
+
+option{
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+
+}
+.finished-resume{
+    box-sizing: border-box;
+    width: 44%;
+    margin: 54px auto 0 auto;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+
+}
+.cv-container{
+    top: 48px;
+    left: 80px;
+}
+.cv-title-container{
+    left: calc(50% - 550px/2);
+}
+.cv-title{
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+    /* identical to box height */
+
+
+    color: #F93B1D;
+}
+.email, .mobile{
+    width: 18px;
+    height: 18px;
+}
+.person-picture{
+    width: 210px;
+    height: 210px;
+    left: 450px;
+    top: 48px;
+
+    background: url(), #D9D9D9;
+    border-radius: 133px;
+}
+
+.education-title, .experience-title, .about-me-title{
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #F93B1D;
+}
+.final-cv-notes{
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+.experiences, .educations{
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+
+
+    /* off black */
+}
+.date{
+    font-family: 'Helvetica Neue';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #919191;
+}
+.final-cv-divider{
+    width: 662px;
+    height: 0px;
+    right: 97px;
+
+    border: 1px solid #C8C8C8;
+}
+
+.Vector{
+    z-index: 10;
+    position: absolute;
+    width: 9.21px;
+    height: 16px;
+    left: 62px;
+    top: 18px;
+}
+.Ellipse{
+    z-index: 10;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 48px;
+    top: 7px;
+}
+.finished-cv-ellipse{
+    z-index: 10;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 48px;
+    top: 7px;
+    filter: brightness(97%);
 }

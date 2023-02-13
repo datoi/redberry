@@ -3,76 +3,99 @@
     font-weight: bold;
     src: url("assets/HelveticaNeue.ttc") format("TTC");
 }
-.cont{
+
+.cont {
     background: #f8f8f8;
 }
-.inner-cont{
+.validation-texts{
+    margin: 4px 0;
+    font-family: 'Helvetica Neue';
+    font-weight: lighter;
+    font-size: 14px;
+    line-height: 21px;
+    color: #2E2E2E;
+    color: rgba(0, 0, 0, 0.7);
+}
+.inner-cont {
+    margin-top: 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     width: 770px;
 }
-.row{
-    --bs-gutter-x: 0!important;
+
+.row {
+    --bs-gutter-x: 0 !important;
 
 }
-input{
+input, textarea, select {
     display: block;
-    height: 35px;
-    font-style: normal;
+    height: 48px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.6);
     background: #FFFFFF;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
 }
-input[type="text"]
-{
-    font-size:14px;
+.validation-icon{
+    background: url('/public/images/success.png') no-repeat right;
 }
-label{
-    margin: 3px 0  ;
+.error-icon{
+    background: url('/public/images/error.png') no-repeat right ;
+    padding-left: 30px;
+
+}
+
+input[type="text"] {
     font-family: 'Helvetica Neue';
-    font-weight: 600;
+    font-style: normal;
+    font-weight: 400;
     font-size: 16px;
+    line-height: 21px;
     color: #000000;
 }
-p{
+
+label {
+    margin: 6px 0;
     font-family: 'Helvetica Neue';
-    font-weight: 300;
+    font-weight: 600;
     font-size: 14px;
-    color: #2E2E2E;
+    color: #000000;
 }
-.personal-info-hr{
-    margin: 0 !important;
-    position: absolute;
+
+.hr {
+    margin: 0 160px !important;
     width: 607px;
-    left: 162px;
     border: 1px solid #1A1A1A;
+
 }
 
 
-.page-number{
+.page-number {
     width: 29px;
     height: 20px;
     font-family: 'Helvetica Neue';
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
     text-align: right;
     color: #1A1A1A;
 }
-.page-titles{
+
+.page-titles {
     margin-left: 160px;
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 18px;
     color: #1A1A1A;
 }
 
-.sec-body{
-    margin: 30px 0 0 162px;
+
+.sec-body {
+    margin: 30px 0 30px 162px;
 
 }
 
-.upload-button{
+.upload-button {
     color: #FFFFFF;
     background: #0E80BF;
     border-radius: 4px;
@@ -82,46 +105,58 @@ p{
     gap: 10px;
 }
 
-.upload-button-note{
+.upload-button-note {
     font-family: 'Helvetica Neue';
     font-weight: 400;
     font-size: 14px;
     color: #FFFFFF;
 }
 
-.about-me-input{
-    height: 90px;
+.about-me-input {
+    height: 179px;
 
     background: #FFFFFF;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
 }
-.button-page-change-container{
-    height: 100px;
-}
-.button-page-change{
-    padding: 10px 30px;
 
+.button-page-change-container {
+
+    margin: 0 0 35px 162px;
+}
+
+.button-page-change {
+    padding: 7px 25px;
     background: #6B40E3;
     border-radius: 4px;
 }
-.button-page-change-note{
+.button-page-change:disabled{
+    background: #512FAF;
+}
+
+.button-page-change:hover{
+    background: #7949FF;
+}
+
+.button-page-change-note {
     width: 81px;
     height: 20px;
     font-family: 'Helvetica Neue';
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 0.08em;
     color: #FFFFFF;
 }
-.add-more-experience{
+
+.add-more {
     padding: 0px 10px;
     width: 240px;
     height: 40px;
     background: #62A1EB;
     border-radius: 4px;
 }
-.add-more-experience-note{
+
+.add-more {
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 500;
@@ -132,11 +167,12 @@ p{
 
     color: #FFFFFF;
 }
-#select-degree{
+
+#select-degree {
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
     border: 1px solid #BCBCBC;
     border-radius: 4px;
@@ -144,55 +180,78 @@ p{
 }
 
 
-option{
+option {
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
 
 }
-.finished-resume{
+
+.side-resume {
+    height: 100vh;
     box-sizing: border-box;
     width: 44%;
-    margin: 54px auto 0 auto;
+    /*margin: 25px auto 0 auto;*/
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+.finished-resume {
+    box-sizing: border-box;
+    width: 44%;
+    margin: 30px auto 0 auto;
     background: #FFFFFF;
     border: 1px solid #000000;
 
 }
-.cv-container{
+
+.cv-container {
     top: 48px;
     left: 80px;
 }
-.cv-title-container{
-    left: calc(50% - 550px/2);
+
+.cv-title-container {
+    left: calc(50% - 550px / 2);
 }
-.cv-title{
+
+.cv-title {
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 700;
-    font-size: 34px;
-    line-height: 42px;
+    font-size: 30px;
+    line-height: 12px;
     /* identical to box height */
 
 
     color: #F93B1D;
 }
-.email, .mobile{
-    width: 18px;
-    height: 18px;
-}
-.person-picture{
-    width: 210px;
-    height: 210px;
-    left: 450px;
-    top: 48px;
 
-    background: url(), #D9D9D9;
+.email, .mobile {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    width: 14px;
+    height: 14px;
+    align-self: center;
+}
+
+.person-picture {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
     border-radius: 133px;
 }
 
-.education-title, .experience-title, .about-me-title{
+.about-me-container {
+    width: 370px;
+    margin-top: 100px;
+}
+
+.education-title, .experience-title, .about-me-title {
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 700;
@@ -200,64 +259,124 @@ option{
     line-height: 22px;
     color: #F93B1D;
 }
-.final-cv-notes{
+
+.description {
     font-family: 'Helvetica Neue';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
     color: #000000;
+    margin-top: 10px;
+    margin-bottom: 0px;
+
 }
-.experiences, .educations{
+
+.name_surname {
     font-family: 'Helvetica Neue';
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42px;
+}
+
+.experiences, .educations {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    /* identical to box height */
-
-
-    /* off black */
+    color: #1A1A1A;
+    margin-top: 12px;
+    margin-bottom: 4px;
 }
-.date{
+
+.date {
     font-family: 'Helvetica Neue';
     font-style: italic;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-
     color: #919191;
 }
-.final-cv-divider{
-    width: 662px;
+
+.description {
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    width: 590px;
+    color: #000000;
+}
+
+.final-cv-divider {
+    width: 575px;
     height: 0px;
-    right: 97px;
 
     border: 1px solid #C8C8C8;
 }
 
-.Vector{
+.Vector {
     z-index: 10;
     position: absolute;
-    width: 9.21px;
+    margin: 19px 55px;
+    width: 9px;
     height: 16px;
-    left: 62px;
-    top: 18px;
+
 }
-.Ellipse{
+
+.Ellipse {
     z-index: 10;
     position: absolute;
     width: 40px;
     height: 40px;
-    left: 48px;
-    top: 7px;
+    margin: 8px 40px;
 }
-.finished-cv-ellipse{
+
+.finished-cv-ellipse {
     z-index: 10;
-    position: absolute;
     width: 40px;
     height: 40px;
     left: 48px;
     top: 7px;
     filter: brightness(97%);
+}
+
+.resume-success {
+    margin-top: 25px;
+    margin-right: 20px;
+    padding: 28px 30px 30px;
+    width: 327px;
+    height: 107px;
+    background: #FFFFFF;
+    border: 1px solid #E4E4E4;
+    box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.resume-success-X {
+    width: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+.dropdown-option:hover{
+    background: #C3DCEE;
+}
+
+.resume-logo-container {
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+.resume-logo {
+    width: 20px;
+    margin-left: 48px;
+}
+.refresh-button{
+    margin-top: 30px;
 }

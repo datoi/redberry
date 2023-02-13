@@ -1,12 +1,18 @@
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import "../../App.css";
 import {useEffect, useState} from "react";
+import RunTimeResume from "../RunTimeResume/RunTimeResume";
 
-const Experience = ({formData, onInputChange}) => {
+const Experience = ({formData, onInputChange, refreshClick}) => {
     const history = useNavigate();
 
     function Click() {
+        if (validationErrors.length === 0){
         history('/Education');
+        } else {
+            history(null)
+        }
+
     }
 
     function ClickPrevious() {
@@ -22,10 +28,57 @@ const Experience = ({formData, onInputChange}) => {
     }
 
     const [formDataState, setFormDataState] = useState(formData);
+    const [validationErrors, setValidationErrors] = useState([]);
+
 
     useEffect(() => {
+        for (const position in formData) {
+            if (formData[position].length > 0) {
+                validate(position, formData[position]);
+            }
+        }
         setFormDataState(formData);
-    });
+    }, [formData]);
+    const isGeorgianLetters = (word) => {
+        // TODO
+
+        return true;
+    }
+    const validate = (input, value) => {
+        switch (input) {
+            case 'position':
+                if (value.length < 2 || !isGeorgianLetters(value)) {
+                    setValidationErrors(values => (
+                        [...values, input]
+                    ))
+                } else if (validationErrors.indexOf(input) > -1) {
+                    console.log(123);
+                    validationErrors.splice(validationErrors.indexOf(input), 1);
+                    setValidationErrors([]);
+                }
+                case 'employer':
+                if (value.length < 2 || !isGeorgianLetters(value)) {
+                    setValidationErrors(values => (
+                        [...values, input]
+                    ))
+                } else if (validationErrors.indexOf(input) > -1) {
+                    console.log(123);
+                    validationErrors.splice(validationErrors.indexOf(input), 1);
+                    setValidationErrors([]);
+                }
+                case 'start_date':
+                if (value.length < 2 || !isGeorgianLetters(value)) {
+                    setValidationErrors(values => (
+                        [...values, input]
+                    ))
+                } else if (validationErrors.indexOf(input) > -1) {
+                    console.log(123);
+                    validationErrors.splice(validationErrors.indexOf(input), 1);
+                    setValidationErrors([]);
+                }
+
+        }
+    }
 
     const handleChange = (e, index) => {
         const name = e.target.name;
@@ -39,12 +92,11 @@ const Experience = ({formData, onInputChange}) => {
             }
             return item;
         });
+        formDataState[name] = value;
 
-        setFormDataState(values => (
-            {...values, experiences: result}
-        ))
-
+        formDataState.experiences = result;
         onInputChange(formDataState);
+        validate(name, value);
     };
 
     const handleAddMoreExperience = () => {
@@ -57,13 +109,12 @@ const Experience = ({formData, onInputChange}) => {
 
 
     return (
-        <div className='cont d-flex vh-100'>
-            <div className=''>
-                <Link to='/'><img className='Ellipse' src="/images/Ellipse%201.png" alt=""/></Link>
-                <Link to='/ '><img className='Vector' src="/images/Vector.png" alt=""/></Link>
+        <div className='cont d-flex'>
+            <div className='refresh-button'>
+                <Link onClick={refreshClick} to='/'><img className='Ellipse' src="/images/Ellipse%201.png" alt=""/><img className='Vector' src="/images/Vector.png" alt=""/></Link>
             </div>
             <div className='inner-cont'>
-                <div>
+                <div className=''>
                     <nav className='navbar'>
                         <ul className='nav d-flex'>
                             <li className='page-titles'>გამოცდილება</li>
@@ -71,7 +122,7 @@ const Experience = ({formData, onInputChange}) => {
                         <li className='page-number list-unstyled align-self-center'>2/3</li>
                     </nav>
                 </div>
-                <hr className='personal-info-hr'/>
+                <hr className='hr mb-3'/>
                 <div className='sec-body'>
                     <div className='personal-info-data'>
                         {Array.from(formDataState.experiences).map((item, index) => {
@@ -83,8 +134,8 @@ const Experience = ({formData, onInputChange}) => {
                                                name="position"
                                                value={item.position}
                                                onChange={(e) => handleChange(e, index)}
-                                               placeholder='დეველოპერი, დიზაინერი, ა.შ' className='ps-3 w-100'/>
-                                        <p>მინიმუმ 2 სიმბოლო</p>
+                                               placeholder='დეველოპერი, დიზაინერი, ა.შ' className={`ps-3 w-100  ${validationErrors.indexOf('position') === -1 && item.position.length > 0 ? "validation-icon border-success success" : ""} ${validationErrors.indexOf('position') > -1 ? "error-icon border-danger danger" : ""}`}/>
+                                        <p className='validation-texts'>მინიმუმ 2 სიმბოლო</p>
                                     </div>
                                     <div className="col-12 mb-3">
                                         <label>დამსაქმებელი</label>
@@ -92,25 +143,32 @@ const Experience = ({formData, onInputChange}) => {
                                                name="employer"
                                                value={item.employer}
                                                onChange={(e) => handleChange(e, index)}
-                                               placeholder='დამსაქმებელი' className='ps-3 w-100'/>
-                                        <p>მინიმუმ 2 სიმბოლო</p>
+                                               placeholder='დამსაქმებელი' className={`ps-3 w-100  ${validationErrors.indexOf('employer') === -1 && item.employer.length > 0 ? "border-success success validation-icon" : ""} ${validationErrors.indexOf('employer') > -1 ? "error-icon border-danger danger" : ""}`}/>
+                                        <p className='validation-texts'>მინიმუმ 2 სიმბოლო</p>
                                     </div>
-                                    <div className="col-6 mb-3 w-50">
+                                    <div className="col-6  w-50">
                                         <label>დაწყების რიცხვი</label>
                                         <input name="start_date"
                                                type="date"
                                                value={item.start_date}
                                                onChange={(e) => handleChange(e, index)}
-                                               className='ps-3 w-100'/>
+                                               className={`ps-3 w-100  ${validationErrors.indexOf('start_date') === -1 && item.start_date.length > 0 ? "border-success success" : ""} ${validationErrors.indexOf('start_date') > -1 ? "border-danger danger" : ""}`}/>
                                     </div>
-                                    <div className="ps-4 col-6 mb-3 w-50">
+                                    <div className="ps-4 col-6  w-50">
                                         <label>დამთავრების რიცხვი</label>
-                                        <input type="date" className='ps-3 w-100'/>
+                                        <input type="date" name='due_date'
+                                               value={item.due_date}
+                                               onChange={(e) => handleChange(e, index)}
+                                               className={`ps-3 w-100  ${validationErrors.indexOf('due_date') === -1 && item.due_date.length > 0 ? "border-success success" : ""} ${validationErrors.indexOf('due_data') > -1 ? "border-danger danger" : ""}`}/>
                                     </div>
                                     <div className='col-12 mt-3 about-me-container p-0'>
                                         <label className='p-0'>აღწერა</label>
-                                        <textarea type="text" className='ps-3 about-me-input w-100'
-                                                  placeholder='როლი თანამდებობაზე და ზოგადი აღწერა'/>
+                                        <textarea
+                                            className={`ps-3 about-me-input w-100  ${validationErrors.indexOf('description') === -1 && item.description.length > 0 ? "border-success success validation-icon" : ""} ${validationErrors.indexOf('description') > -1 ? "error-icon border-danger danger" : ""}`}
+                                                  placeholder='როლი თანამდებობაზე და ზოგადი აღწერა'
+                                                  name='description'
+                                                  value={item.description}
+                                                  onChange={(e) => handleChange(e, index)}/>
                                     </div>
                                     <hr className='my-4'/>
                                 </div>
@@ -124,55 +182,16 @@ const Experience = ({formData, onInputChange}) => {
                 </div>
                 <div className='button-page-change-container d-flex justify-content-between mt-auto'>
                     <button onClick={ClickPrevious} className='button-page-change border-0 mt-auto'>
-                        <Link to='Experience' className='text-decoration-none'><span
-                            className='button-page-change-note'> უკან </span></Link>
+                        <span
+                            className='button-page-change-note'> უკან </span>
                     </button>
-                    <button onClick={Click} className='button-page-change border-0 mt-auto'>
-                        <Link to='Experience' className='text-decoration-none'><span
-                            className='button-page-change-note'> შემდეგი </span></Link>
+                    <button onClick={Click} disabled={validationErrors.length > 0} className='button-page-change border-0 mt-auto'>
+                        <span
+                            className='button-page-change-note'> შემდეგი </span>
                     </button>
                 </div>
             </div>
-
-            <div className='side-resume border-0 mt-0 position-absolute end-0 '>
-                <div className='mx-5 h-100 d-flex justify-content-between'>
-                    <div className='w-100 '>
-                        <div className='d-flex justify-content-between w-100 mt-4' style={{flex: '1'}}>
-                            <div className=''>
-                                <div className='cv-title mb-2'>
-                                    <span>name surname </span>
-                                </div>
-                                <div className='personal-info my-3'>
-                                    <div className='mb-1 d-flex'><img className='email' src="/images/dogy.png" alt=""/>
-                                        <p>asd</p></div>
-                                    <div className='d-flex'><img className='mobile' src="/images/phone.png" alt=""/>
-                                        <p>+995</p>
-                                    </div>
-                                </div>
-                                <div className='about-me-container mt-4'>
-                                    <p className='about-me-title'>ჩემ შესახებ</p>
-                                    <span className='final-cv-notes my-3'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam commodi cum dolorem eos mollitia perferendis quae, quia. Accusamus, accusantium debitis, distinctio ipsa iusto, necessitatibus quam quis quisquam sed vitae voluptates!</span>
-                                </div>
-                            </div>
-                            <div className='person-picture'><img src="" alt=""/></div>
-                        </div>
-                        <hr className='final-cv-divider'/>
-                        <div className='experience-container'>
-                            <p className='experience-title'>გამოცდილება</p>
-                            <p className='experiences'>react</p>
-                            <p className='date'>date date</p>
-                            <span className='final-cv-notes'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita pariatur porro tempora! At cum distinctio ea iste, laborum nisi officiis quis similique? At blanditiis commodi dolorum id, omnis sed. Quia.</span>
-                        </div>
-
-                    </div>
-                    <div className='resume-logo-container position-absolute bottom-0 start-0' style={{flex: '1'}}>
-                        <img className='resume-logo ' src="/images/LOGO-12%201.png" alt=""/>
-                    </div>
-
-
-                </div>
-            </div>
-
+            <RunTimeResume formData={formData}/>
             <Outlet/>
         </div>
 

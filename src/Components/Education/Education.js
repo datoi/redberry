@@ -81,44 +81,36 @@ const Education = ({refreshClick, formData, onInputChange}) => {
     const validate = (input, value) => {
         switch (input) {
             case 'institute':
-                if (value.length < 2) {
+                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
                         [...values, input]
                     ))
                 } else if (validationErrors.indexOf(input) > -1) {
-
-                    validationErrors.splice(validationErrors.indexOf(input), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
-                case 'degree_id':
-                if (value === '') {
+            case 'degree_id':
+                if (value === '' && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
                         [...values, input]
                     ))
                 } else if (validationErrors.indexOf(input) > -1) {
-
-                    validationErrors.splice(validationErrors.indexOf(input), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
-                case 'due_date':
-                if (value.length < 2) {
+            case 'due_date':
+                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
                         [...values, input]
                     ))
                 } else if (validationErrors.indexOf(input) > -1) {
-
-                    validationErrors.splice(validationErrors.indexOf(input), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
-                case 'description':
-                if (value.length < 2) {
+            case 'description':
+                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
                         [...values, input]
                     ))
                 } else if (validationErrors.indexOf(input) > -1) {
-
-                    validationErrors.splice(validationErrors.indexOf(input), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
 
 

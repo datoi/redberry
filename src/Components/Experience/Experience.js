@@ -39,42 +39,48 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
         }
         setFormDataState(formData);
     }, [formData]);
-    const isGeorgianLetters = (word) => {
-        // TODO
 
-        return true;
-    }
     const validate = (input, value) => {
         switch (input) {
             case 'position':
-                if (value.length < 2 || !isGeorgianLetters(value)) {
+                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
                         [...values, input]
                     ))
                 } else if (validationErrors.indexOf(input) > -1) {
-                    console.log(123);
-                    validationErrors.splice(validationErrors.indexOf(input), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
-                case 'employer':
-                if (value.length < 2 || !isGeorgianLetters(value)) {
+            case 'employer':
+                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
                         [...values, input]
                     ))
                 } else if (validationErrors.indexOf(input) > -1) {
-                    console.log(123);
-                    validationErrors.splice(validationErrors.indexOf(input), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
-                case 'start_date':
-                if (value.length < 2 || !isGeorgianLetters(value)) {
+            case 'start_date':
+                if (value.length < 1 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
                         [...values, input]
                     ))
                 } else if (validationErrors.indexOf(input) > -1) {
-                    console.log(123);
-                    validationErrors.splice(validationErrors.indexOf(input), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
+                }
+            case 'end_date':
+                if (value.length < 1 && validationErrors.indexOf(input) === -1) {
+                    setValidationErrors(values => (
+                        [...values, input]
+                    ))
+                } else if (validationErrors.indexOf(input) > -1) {
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
+                }
+            case 'description':
+                if (value.length < 1 && validationErrors.indexOf(input) === -1) {
+                    setValidationErrors(values => (
+                        [...values, input]
+                    ))
+                } else if (validationErrors.indexOf(input) > -1) {
+                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
 
         }

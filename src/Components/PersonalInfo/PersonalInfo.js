@@ -48,50 +48,41 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
 
     const Mobile = /^\+995\d{9}$/;
     const Email = /^[^\s@]+@redberry\.ge$/;
-
     const reGeorgianLetters = /^[ა-ჰ]+$/;
 
     const validate = (name, value) => {
         switch (name) {
             case 'name':
-                if (!reGeorgianLetters.test(value)) {
+                if ((value.length <= 1 || !reGeorgianLetters.test(value)) && validationErrors.indexOf(name) === -1) {
                     setValidationErrors(values => (
                         [...values, name]
                     ));
                 } else if (validationErrors.indexOf(name) > -1) {
-                    console.log(1)
-                    validationErrors.splice(validationErrors.indexOf(name), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
             case 'surname':
-                if (!reGeorgianLetters.test(value)) {
+                if ((value.length <= 1 || !reGeorgianLetters.test(value)) && validationErrors.indexOf(name) === -1) {
                     setValidationErrors(values => (
                         [...values, name]
                     ));
                 } else if (validationErrors.indexOf(name) > -1) {
-                    console.log(2)
-                    validationErrors.splice(validationErrors.indexOf(name), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
-                case 'email':
-                if (!Email.test(value)) {
+            case 'email':
+                if (!Email.test(value) && validationErrors.indexOf(name) === -1) {
                     setValidationErrors(values => (
                         [...values, name]
                     ));
                 } else if (validationErrors.indexOf(name) > -1) {
-                    console.log(3)
-                    validationErrors.splice(validationErrors.indexOf(name), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
-                case 'phone_number':
-                if (!Mobile.test(value)) {
+            case 'phone_number':
+                if (!Mobile.test(value) && validationErrors.indexOf(name) === -1) {
                     setValidationErrors(values => (
                         [...values, name]
                     ));
                 } else if (validationErrors.indexOf(name) > -1) {
-                    console.log(2)
-                    validationErrors.splice(validationErrors.indexOf(name), 1);
-                    setValidationErrors([]);
+                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
         }
     };

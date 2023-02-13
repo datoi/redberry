@@ -60,6 +60,7 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(name) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
+                break;
             case 'surname':
                 if ((value.length <= 1 || !reGeorgianLetters.test(value)) && validationErrors.indexOf(name) === -1) {
                     setValidationErrors(values => (
@@ -68,6 +69,7 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(name) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
+                break;
             case 'email':
                 if (!Email.test(value) && validationErrors.indexOf(name) === -1) {
                     setValidationErrors(values => (
@@ -76,6 +78,7 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(name) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
+                break;
             case 'phone_number':
                 if (!Mobile.test(value) && validationErrors.indexOf(name) === -1) {
                     setValidationErrors(values => (
@@ -84,6 +87,7 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(name) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(name), 1));
                 }
+                break;
         }
     };
 

@@ -88,6 +88,7 @@ const Education = ({refreshClick, formData, onInputChange}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
             case 'degree_id':
                 if (value === '' && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
@@ -96,6 +97,7 @@ const Education = ({refreshClick, formData, onInputChange}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
             case 'due_date':
                 if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
@@ -104,6 +106,7 @@ const Education = ({refreshClick, formData, onInputChange}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
             case 'description':
                 if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
@@ -112,7 +115,7 @@ const Education = ({refreshClick, formData, onInputChange}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
-
+                break;
 
         }
     }

@@ -50,6 +50,7 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
             case 'employer':
                 if (value.length < 2 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
@@ -58,6 +59,7 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
             case 'start_date':
                 if (value.length < 1 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
@@ -66,6 +68,7 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
             case 'end_date':
                 if (value.length < 1 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
@@ -74,6 +77,7 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
             case 'description':
                 if (value.length < 1 && validationErrors.indexOf(input) === -1) {
                     setValidationErrors(values => (
@@ -82,6 +86,7 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
                 } else if (validationErrors.indexOf(input) > -1) {
                     setValidationErrors(values => values.splice(values.indexOf(input), 1));
                 }
+                break;
 
         }
     }

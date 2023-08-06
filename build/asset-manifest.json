@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.5719511e.css",
-    "main.js": "/static/js/main.b4f767f0.js",
-    "static/js/787.bc928270.chunk.js": "/static/js/787.bc928270.chunk.js",
-    "static/media/HelveticaNeue.ttc": "/static/media/HelveticaNeue.67d426c3bd180e2ea838.ttc",
-    "index.html": "/index.html",
-    "main.5719511e.css.map": "/static/css/main.5719511e.css.map",
-    "main.b4f767f0.js.map": "/static/js/main.b4f767f0.js.map",
-    "787.bc928270.chunk.js.map": "/static/js/787.bc928270.chunk.js.map"
+    "main.css": "/redberry/static/css/main.e488b1c9.css",
+    "main.js": "/redberry/static/js/main.8a32088b.js",
+    "static/js/787.bc928270.chunk.js": "/redberry/static/js/787.bc928270.chunk.js",
+    "static/media/HelveticaNeue.ttc": "/redberry/static/media/HelveticaNeue.67d426c3bd180e2ea838.ttc",
+    "index.html": "/redberry/index.html",
+    "main.e488b1c9.css.map": "/redberry/static/css/main.e488b1c9.css.map",
+    "main.8a32088b.js.map": "/redberry/static/js/main.8a32088b.js.map",
+    "787.bc928270.chunk.js.map": "/redberry/static/js/787.bc928270.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5719511e.css",
-    "static/js/main.b4f767f0.js"
+    "static/css/main.e488b1c9.css",
+    "static/js/main.8a32088b.js"
   ]
 }

@@ -1,6 +1,7 @@
 import './HomePage.css'
 import {Outlet, Link,} from "react-router-dom";
 
+
 const HomePage = () => {
     return (
         <div className="">

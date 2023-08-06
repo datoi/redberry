@@ -79,46 +79,31 @@ const Education = ({refreshClick, formData, onInputChange}) => {
     }, [formData]);
 
     const validate = (input, value) => {
-        switch (input) {
-            case 'institute':
-                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
-            case 'degree_id':
-                if (value === '' && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
-            case 'due_date':
-                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
-            case 'description':
-                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
+        const validationConditions = {
+            institute: {
+                condition: value.length < 2,
+            },
+            degree_id: {
+                condition: value === '',
+            },
+            due_date: {
+                condition: value.length < 2,
+            },
+            description: {
+                condition: value.length < 2,
+            },
+        };
 
+        if (validationConditions[input]?.condition) {
+            if (validationErrors.indexOf(input) === -1) {
+                setValidationErrors((values) => [...values, input]);
+            }
+        } else {
+            if (validationErrors.indexOf(input) > -1) {
+                setValidationErrors((values) => values.filter((item) => item !== input));
+            }
         }
-    }
+    };
 
 
     const handleChange = (e, index) => {

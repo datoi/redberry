@@ -19,13 +19,7 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
         history('/PersonalInfo');
     }
 
-    const emptyExperienceObject = {
-        position: '',
-        employer: '',
-        start_date: '',
-        due_date: '',
-        description: ''
-    }
+
 
     const [formDataState, setFormDataState] = useState(formData);
     const [validationErrors, setValidationErrors] = useState([]);
@@ -40,56 +34,33 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
         setFormDataState(formData);
     }, [formData]);
 
-    const validate = (input, value) => {
-        switch (input) {
-            case 'position':
-                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
-            case 'employer':
-                if (value.length < 2 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
-            case 'start_date':
-                if (value.length < 1 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
-            case 'end_date':
-                if (value.length < 1 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
-            case 'description':
-                if (value.length < 1 && validationErrors.indexOf(input) === -1) {
-                    setValidationErrors(values => (
-                        [...values, input]
-                    ))
-                } else if (validationErrors.indexOf(input) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(input), 1));
-                }
-                break;
+    const emptyExperienceObject = {
+        position: '',
+        employer: '',
+        start_date: '',
+        due_date: '',
+        description: '',
+    };
 
+    const validationConditions = {
+        position: (value) => value.length < 2,
+        employer: (value) => value.length < 2,
+        start_date: (value) => value.length < 1,
+        end_date: (value) => value.length < 1,
+        description: (value) => value.length < 1,
+    };
+
+    const validate = (input, value) => {
+        if (validationConditions[input]?.(value)) {
+            if (!validationErrors.includes(input)) {
+                setValidationErrors((values) => [...values, input]);
+            }
+        } else {
+            if (validationErrors.includes(input)) {
+                setValidationErrors((values) => values.filter((item) => item !== input));
+            }
         }
-    }
+    };
 
     const handleChange = (e, index) => {
         const name = e.target.name;

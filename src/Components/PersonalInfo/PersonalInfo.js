@@ -50,44 +50,30 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
     const Email = /^[^\s@]+@redberry\.ge$/;
     const reGeorgianLetters = /^[ა-ჰ]+$/;
 
+    const validationConditions = {
+        name: {
+            condition: (value) => value.length <= 1 || !reGeorgianLetters.test(value),
+        },
+        surname: {
+            condition: (value) => value.length <= 1 || !reGeorgianLetters.test(value),
+        },
+        email: {
+            condition: (value) => !Email.test(value),
+        },
+        phone_number: {
+            condition: (value) => !Mobile.test(value),
+        },
+    };
+
     const validate = (name, value) => {
-        switch (name) {
-            case 'name':
-                if ((value.length <= 1 || !reGeorgianLetters.test(value)) && validationErrors.indexOf(name) === -1) {
-                    setValidationErrors(values => (
-                        [...values, name]
-                    ));
-                } else if (validationErrors.indexOf(name) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
-                }
-                break;
-            case 'surname':
-                if ((value.length <= 1 || !reGeorgianLetters.test(value)) && validationErrors.indexOf(name) === -1) {
-                    setValidationErrors(values => (
-                        [...values, name]
-                    ));
-                } else if (validationErrors.indexOf(name) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
-                }
-                break;
-            case 'email':
-                if (!Email.test(value) && validationErrors.indexOf(name) === -1) {
-                    setValidationErrors(values => (
-                        [...values, name]
-                    ));
-                } else if (validationErrors.indexOf(name) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
-                }
-                break;
-            case 'phone_number':
-                if (!Mobile.test(value) && validationErrors.indexOf(name) === -1) {
-                    setValidationErrors(values => (
-                        [...values, name]
-                    ));
-                } else if (validationErrors.indexOf(name) > -1) {
-                    setValidationErrors(values => values.splice(values.indexOf(name), 1));
-                }
-                break;
+        if (validationConditions[name]?.condition(value)) {
+            if (validationErrors.indexOf(name) === -1) {
+                setValidationErrors((values) => [...values, name]);
+            }
+        } else {
+            if (validationErrors.indexOf(name) > -1) {
+                setValidationErrors((values) => values.filter((item) => item !== name));
+            }
         }
     };
 

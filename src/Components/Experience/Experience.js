@@ -2,6 +2,8 @@ import {Link, Outlet, useNavigate} from "react-router-dom";
 import "../../App.css";
 import {useEffect, useState} from "react";
 import RunTimeResume from "../RunTimeResume/RunTimeResume";
+import eclipse from '../../images/Ellipse 1.png';
+import vector from '../../images/Vector.png';
 
 const Experience = ({formData, onInputChange, refreshClick}) => {
     const history = useNavigate();
@@ -93,7 +95,10 @@ const Experience = ({formData, onInputChange, refreshClick}) => {
     return (
         <div className='cont d-flex'>
             <div className='refresh-button'>
-                <Link onClick={refreshClick} to='/'><img className='Ellipse' src="/images/Ellipse%201.png" alt=""/><img className='Vector' src="/images/Vector.png" alt=""/></Link>
+                <Link onClick={refreshClick} to='/'>
+                    <img className='Ellipse' src={eclipse} alt=""/>
+                    <img className='Vector' src={vector} alt=""/>
+                </Link>
             </div>
             <div className='inner-cont'>
                 <div className=''>

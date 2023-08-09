@@ -2,6 +2,9 @@ import "../../App.css";
 import {Link, Outlet, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import RunTimeResume from "../RunTimeResume/RunTimeResume";
+import ellipse from '../../images/Ellipse 1.png'
+import vector from '../../images/Vector.png'
+
 
 
 const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
@@ -88,7 +91,7 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
 
         <div className='cont d-flex'>
             <div className='refresh-button'>
-                <Link onClick={refreshClick} to='/'><img className='Ellipse' src="/images/Ellipse%201.png" alt=""/><img className='Vector' src="/images/Vector.png" alt=""/></Link>
+                <Link onClick={refreshClick} to='/'><img className='Ellipse' src={ellipse} alt=""/><img className='Vector' src={vector} alt=""/></Link>
             </div>
             <div className='inner-cont'>
                 <div>

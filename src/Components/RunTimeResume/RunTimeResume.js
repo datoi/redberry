@@ -1,3 +1,7 @@
+import dogy from '../../images/dogy.png';
+import phone from '../../images/phone.png';
+import logo12 from '../../images/LOGO-12 1.png';
+
 const RunTimeResume = ({formData}) => {
     return (
         <div>
@@ -11,12 +15,12 @@ const RunTimeResume = ({formData}) => {
                                 </div>
                                 <div className='personal-info my-3'>
                                     {formData.email.length > 0 && (
-                                        <div className='mb-1 d-flex'><img className='email' src="/images/dogy.png"/>
+                                        <div className='mb-1 d-flex'><img className='email' src={dogy}/>
                                             <span>{formData.email}</span>
                                         </div>
                                     )}
                                     {formData.phone_number.length > 0 && (
-                                        <div className='d-flex'><img className='mobile' src="/images/phone.png"/>
+                                        <div className='d-flex'><img className='mobile' src={phone}/>
                                             <span>{formData.phone_number}</span>
                                         </div>
                                     )}
@@ -72,7 +76,7 @@ const RunTimeResume = ({formData}) => {
                     </div>
 
                     <div className='resume-logo-container position-absolute bottom-0 start-0' style={{flex: '1'}}>
-                        <img className='resume-logo ' src="/images/LOGO-12%201.png" alt=""/>
+                        <img className='resume-logo' src={logo12} alt=""/>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,11 @@
 import {Link, Outlet} from "react-router-dom";
 import {useState} from "react";
-
+import eclipse from "../../images/Ellipse 1.png";
+import vector from "../../images/Vector.png";
+import x from '../../images/X.png';
+import dogy from '../../images/dogy.png';
+import phone from '../../images/phone.png';
+import logo12 from '../../images/LOGO-12 1.png';
 
 const Finished = ({formData, refreshClick}) => {
 
@@ -9,8 +14,10 @@ const Finished = ({formData, refreshClick}) => {
     return (
         <div className='d-flex'>
             <div className=''>
-                <Link onClick={refreshClick} to='/'><img className='Ellipse' src="/images/Ellipse%201.png" alt=""/><img
-                    className='Vector' src="/images/Vector.png" alt=""/></Link>
+                <Link onClick={refreshClick} to='/'>
+                    <img className='Ellipse' src={eclipse} alt=""/>
+                    <img className='Vector' src={vector} alt=""/>
+                </Link>
             </div>
             <div className='finished-resume'>
                 <div className='mx-5 mt-4  h-100 d-flex justify-content-between'>
@@ -23,11 +30,11 @@ const Finished = ({formData, refreshClick}) => {
 
                                 <div className='personal-info mt-4'>
                                     <div className='d-flex'>
-                                        <img className='email ' src="/images/dogy.png"/>
+                                        <img className='email ' src={dogy}/>
                                         <p className='m-0'>{formData.email}</p>
                                     </div>
                                     <div className='d-flex mt-2'>
-                                        <img className='mobile ' src="/images/phone.png" alt=""/>
+                                        <img className='mobile ' src={phone} alt=""/>
                                         <p className='m-0'>{formData.phone_number}</p>
                                     </div>
                                 </div>
@@ -69,7 +76,7 @@ const Finished = ({formData, refreshClick}) => {
                             ))}
                         </div>
                         <div className='resume-logo-container ' style={{flex: '1'}}>
-                            <img className='resume-logo ms-0 ' src="/images/LOGO-12%201.png" alt=""/>
+                            <img className='resume-logo ms-0 ' src={logo12} alt=""/>
                         </div>
                     </div>
 
@@ -77,7 +84,7 @@ const Finished = ({formData, refreshClick}) => {
             </div>
 
             {!closed && <div className='position-absolute end-0 resume-success'>
-                <img className='float-end resume-success-X' onClick={() => setClose(!closed)} src="/images/X.png"
+                <img className='float-end resume-success-X' onClick={() => setClose(!closed)} src={x}
                      alt=""/>
                 <div className=''>რეზიუმე წარმატებით გაიგზავნა 🎉</div>
             </div>}

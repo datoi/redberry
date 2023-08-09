@@ -37,10 +37,10 @@ input, textarea, select {
     border-radius: 4px;
 }
 .validation-icon{
-    background: url('/public/images/success.png') no-repeat right;
+    background: url('images/success.png') no-repeat right;
 }
 .error-icon{
-    background: url('/public/images/error.png') no-repeat right ;
+    background: url('images/error.png') no-repeat right ;
     padding-left: 30px;
 
 }

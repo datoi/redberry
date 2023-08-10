@@ -1,6 +1,6 @@
 import HomePage from './Components/HomePage/HomePage';
 import PersonalInfo from './Components/PersonalInfo/PersonalInfo';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {HashRouter, Route, Routes} from 'react-router-dom';
 import Education from './Components/Education/Education';
 import Experience from './Components/Experience/Experience';
 import Finished from './Components/Finished/Finished';
@@ -59,7 +59,7 @@ class App extends Component {
 
 
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <Routes>
                     <Route element={<RunTimeResume formData={this.state.formData}/>}></Route>
                     <Route path='/' element={<HomePage/>}></Route>
@@ -76,7 +76,7 @@ class App extends Component {
                                                               formData={this.state.formData}/>}></Route>
 
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
 
         )
     }

@@ -51,7 +51,7 @@ class App extends Component {
         localStorage.setItem('formData', JSON.stringify(event));
     };
     refreshClick = () => {
-        window.location.href = '/'
+        window.location.href = '/redberry'
         localStorage.removeItem("formData");
         window.localStorage.refresh();
     }
@@ -63,7 +63,7 @@ class App extends Component {
             <HashRouter>
                 <Routes>
                     <Route element={<RunTimeResume formData={this.state.formData}/>}></Route>
-                    <Route path='/' element={<HomePage/>}></Route>
+                    <Route path='/redberry' element={<HomePage/>}></Route>
                     <Route path='PersonalInfo'
                            element={<PersonalInfo refreshClick={this.refreshClick} formData={this.state.formData}
                                                   onInputChange={this.handleFormDataChange}/>}></Route>

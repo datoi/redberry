@@ -19,25 +19,26 @@ class App extends Component {
                 surname: '',
                 email: '',
                 phone_number: ''
-            ,
-            experiences: [{
-                position: '',
-                employer: '',
-                start_date: '',
-                due_date: '',
-                description: ''
-            }],
-            educations: [{
-                institute: '',
-                degree_id: '',
-                due_date: '',
-                description: ''
-            }],
-            image: '',
-            about_me: ''
+                ,
+                experiences: [{
+                    position: '',
+                    employer: '',
+                    start_date: '',
+                    due_date: '',
+                    description: ''
+                }],
+                educations: [{
+                    institute: '',
+                    degree_id: '',
+                    due_date: '',
+                    description: ''
+                }],
+                image: '',
+                about_me: ''
+            }
         }
     }
-    }
+
     componentDidMount = () => {
         if (localStorage.getItem('formData')) {
             const formData = JSON.parse(localStorage.getItem('formData'));
@@ -49,14 +50,14 @@ class App extends Component {
         this.setState({formData: event});
         localStorage.setItem('formData', JSON.stringify(event));
     };
-
-    refreshClick() {
+    refreshClick = () => {
+        window.location.href = '/'
         localStorage.removeItem("formData");
-        window.location.refresh();
+        window.localStorage.refresh();
     }
 
-    render() {
 
+    render() {
 
         return (
             <HashRouter>

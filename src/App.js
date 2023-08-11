@@ -60,10 +60,10 @@ class App extends Component {
     render() {
 
         return (
-            <HashRouter>
+            <HashRouter >
                 <Routes>
                     <Route element={<RunTimeResume formData={this.state.formData}/>}></Route>
-                    <Route path='/redberry' element={<HomePage/>}></Route>
+                    <Route path='/' element={<HomePage/>}></Route>
                     <Route path='PersonalInfo'
                            element={<PersonalInfo refreshClick={this.refreshClick} formData={this.state.formData}
                                                   onInputChange={this.handleFormDataChange}/>}></Route>

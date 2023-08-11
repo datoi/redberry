@@ -8,6 +8,9 @@ import vector from '../../images/Vector.png'
 
 
 const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
+    function ClickPrevious() {
+        history('/');
+    }
     const history = useNavigate();
 
     function handleClick() {
@@ -144,7 +147,11 @@ const PersonalInfo = ({formData, onInputChange, refreshClick}) => {
                     </div>
                 </div>
 
-                <div className='button-page-change-container d-flex align-items-end flex-column mt-auto'>
+                <div className='button-page-change-container d-flex justify-content-between mt-auto'>
+                    <button onClick={ClickPrevious} className='button-page-change border-0 mt-auto'>
+                        <span
+                            className='button-page-change-note'> უკან </span>
+                    </button>
                     <button onClick={handleClick} disabled={validationErrors.length > 0} className='button-page-change border-0 mt-auto'>
                         <span
                             className='button-page-change-note'> შემდეგი </span>
